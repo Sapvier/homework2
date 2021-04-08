@@ -7,6 +7,7 @@ const htmlmin = require('gulp-htmlmin')
 const img = require('gulp-imagemin')
 const autoprefixer = require('gulp-autoprefixer')
 const del = require('del')
+const ghPages = require('gulp-gh-pages');
 
 
 function html() {
@@ -27,5 +28,16 @@ function scss() {
         .pipe(csso())
         .pipe(dest('dist'))
 }
+function deploy() {
+    return src('./dist/**/*')
+        .pipe(ghPages({
+            branch: 'gulp-initialize',
+            push: true
+        }));
+}
+
+
+
 exports.html = html
 exports.scss = scss
+exports.deploy = deploy
