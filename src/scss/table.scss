@@ -1,0 +1,138 @@
+$font: DINPro, sans-serif;
+$font-color: #262e4f;
+
+a {
+  text-decoration: none;
+}
+a:after {
+  transform: rotate(-45deg);
+  display: inline-block;
+  content: "\2192";
+}
+
+.table-container {
+  max-width: 1920px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px
+}
+.breadcrumbs {
+  max-width: 1338px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+}
+.breadcrumbs-item {
+  padding: 10px;
+  font-family: $font;
+  font-size: 20px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: #d4d5dc;
+}
+.breadcrumbs-item:after {
+    padding-left: 10px;
+    display: inline-block;
+    content: "\2192";
+}
+.no-arrow:after {
+  content: "";
+}
+.item-title {
+  font-family: Avenir, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.3;
+  letter-spacing: normal;
+  color: #262e4f;
+}
+.items-details {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.current-step {
+  font-family: $font;
+  font-size: 30px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  color: #262e4f;
+}
+.previous-step {
+  color: #262e4f;
+}
+
+.map-image{
+  align-self: flex-start;
+}
+
+.labs-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  max-width: 1338px;
+  padding: 20px 24px 25px 30px;
+  border: solid 2px #e4e8f0;
+  background-color: #ffffff;
+}
+.labs-item-location {
+  padding-right: 20px;
+  justify-self: stretch;
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.labs-item-radio {
+  width: 40%;
+}
+
+.labs-item-details {
+  column-gap: 15%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+.radio-section {
+  display: flex;
+  flex-direction: row;
+}
+
+.arrow-container {
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrowed-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 36px;
+  height: 34px;
+  border: solid 2px #2c49c5;
+}
+.arrow-down {
+  font-weight: bold;
+  color: #2c49c5
+}
