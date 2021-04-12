@@ -22,6 +22,7 @@
   "dependencies": {
     "del": "^6.0.0",
     "gulp-htmlmin": "^5.0.1",
-    "gulp-sass": "^4.1.0"
+    "gulp-sass": "^4.1.0",
+    "npm": "^7.9.0"
   }
 }
