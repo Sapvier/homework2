@@ -43,7 +43,8 @@ function image () {
 }
 
 function js () {
-    return src('src/js/index.js')
+    return src('src/js/**.js')
+        .pipe(concat('index.js'))
         .pipe(minify())
         .pipe(dest('dist'))
 }

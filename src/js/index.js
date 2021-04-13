@@ -1,20 +1,20 @@
+const form = document.querySelector('#form')
+const fields = ['name', 'password', 'countries']
 
-document.querySelector('button').onclick = (e) => {
-    e.preventDefault()
-    let name = document.getElementById("name").value
-    let password = document.getElementById("password").value
-    let country = document.getElementById("countries").value
-    let gender = document.querySelector(
-        'input[name="gender"]:checked').value;
-    let terms = document.getElementById("terms").checked
 
-}
-
+const validator = new FormValidator(form, fields)
+validator.initialize()
 
 
 document.getElementById("eye").onclick = () => {
-    if (document.getElementById("password").attributes["type"].value === "text") {
-        document.getElementById("password").attributes["type"].value = 'password'
-    }
-    else document.getElementById("password").attributes["type"].value = 'text'
+    document.getElementById("password").attributes["type"].value = 'text'
+    document.getElementById('eye').style.display = 'none'
+    document.getElementById('eye-slashed').style.display = 'block'
+
+}
+document.getElementById("eye-slashed").onclick = () => {
+    document.getElementById("password").attributes["type"].value = 'password'
+    document.getElementById('eye-slashed').style.display = 'none'
+    document.getElementById('eye').style.display = 'block'
+
 }
