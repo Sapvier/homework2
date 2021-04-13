@@ -1,0 +1,147 @@
+
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+span {
+  width: 10%;
+  color: gray;
+  padding-right: 5px;
+}
+
+a {
+  text-decoration: none;
+  color: dodgerblue;
+}
+button {
+  border: none;
+  border-radius: 9px;
+  padding: 10px;
+  width: 100%;
+  background-color: dodgerblue;
+  color: floralwhite;
+}
+.select-wrapper {
+  width: 100%;
+  position: relative;
+}
+.select-wrapper::after {
+  color: gray;
+  content: "\276F";
+  font-size: 0.6rem;
+  top: 10px;
+  right: 18px;
+  position: absolute;
+
+  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+}
+
+select {
+  -webkit-appearance: none;
+  appearance: none;
+  padding: 7px 10px 7px 27px;
+  width: 100%;
+  border-radius: 9px;
+  margin-bottom: 20px;
+  background-color: #f5f5f5;
+  border: 1px solid #dcdcdc;
+  color: grey;
+}
+
+select option {
+  color: grey;
+  background-color: whitesmoke;
+}
+
+
+select:focus {
+  outline: none !important;
+}
+
+#name {
+  width: 100%;
+}
+
+#password {
+  width: 100%;
+}
+
+.fontAwesome {
+  font-family: 'Helvetica', FontAwesome, sans-serif;
+}
+input {
+  margin: 0;
+  border: none;
+  background-color: #f5f5f5;
+  outline: none;
+}
+
+.input-box {
+  width: 100%;
+  border: 1px solid #dcdcdc;
+  padding: 7px;
+  border-radius: 9px;
+  margin-bottom: 25px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+
+  background-color: #f5f5f5;
+}
+
+.auth-container {
+  margin: 0 auto;
+  padding: 30px;
+  max-width: 1440px;
+  background-color: midnightblue;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-box {
+  padding: 15px;
+  width: 20%;
+  background-color: floralwhite;
+  border-radius: 5px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form-title {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.radio-box {
+  width: 100%;
+  margin-bottom: 20px;
+
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+  justify-content: flex-start;
+  align-items: center;
+}
+.terms-box {
+  width: 100%;
+  margin-bottom: 20px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 7px;
+
+}

@@ -1,4 +1,4 @@
-const {src, dest} = require('gulp')
+const {src, dest, series, watch} = require('gulp')
 const sass = require('gulp-sass')
 const prettier = require('gulp-prettier')
 const csso = require('gulp-csso')
@@ -7,7 +7,9 @@ const htmlmin = require('gulp-htmlmin')
 const img = require('gulp-imagemin')
 const autoprefixer = require('gulp-autoprefixer')
 const del = require('del')
-const ghPages = require('gulp-gh-pages');
+const concat = require('gulp-concat')
+const sync = require('browser-sync').create()
+const minify = require('gulp-minify');
 
 
 function html() {
@@ -16,7 +18,9 @@ function html() {
                 prefix: '@@'
             }
         ))
-        .pipe(htmlmin({}))
+        .pipe(htmlmin({
+            collapseWhitespace: true
+        }))
         .pipe(dest('dist'))
 }
 function scss() {
@@ -26,18 +30,35 @@ function scss() {
             browsers: ['last 2 versions']
         }))
         .pipe(csso())
+        .pipe(concat('index.css'))
         .pipe(dest('dist'))
 }
-function deploy() {
-    return src('./dist/**/*')
-        .pipe(ghPages({
-            branch: 'gulp-initialize',
-            push: true
-        }));
+function clear () {
+    return del('dist')
+}
+function image () {
+    return src('src/assets/**.svg')
+        .pipe(img())
+        .pipe(dest('dist/assets'))
+}
+
+function js () {
+    return src('src/js/index.js')
+        .pipe(minify())
+        .pipe(dest('dist'))
+}
+
+function serve() {
+    sync.init({
+        server: './dist'
+    })
+    watch('src/**.html', series(html)).on('change', sync.reload)
+    watch('src/js/**.js', series(js)).on('change', sync.reload)
+    watch('src/parts/**.html', series(html)).on('change', sync.reload)
+    watch('src/scss/**.scss', series(scss)).on('change', sync.reload)
 }
 
 
 
-exports.html = html
-exports.scss = scss
-exports.deploy = deploy
+exports.build = series(clear, scss, image, js, html)
+exports.serve = series(clear, scss, image, html, js, serve)

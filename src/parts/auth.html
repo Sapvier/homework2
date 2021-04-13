@@ -1,0 +1,46 @@
+<section>
+    <div class="auth-container">
+        <div class="auth-box">
+            <p class="form-title">Create a new account</p>
+            <form>
+                <div class="input-box">
+                    <span class="fontAwesome">&#xf0e0;</span>
+                    <input class="fontAwesome" placeholder="Name" type="text" id="name">
+                    <label for="name"></label>
+                </div>
+                <div class="input-box">
+                    <span class="fontAwesome">&#xf13e;</span>
+                    <input placeholder="Password" type="password" id="password">
+                    <label for="password"></label>
+                    <span class="fontAwesome" id="eye"
+                          style="cursor: pointer; color: black; font-size: 12px">&#xf06e;</span>
+                </div>
+                <label for="countries"></label>
+                <div class="select-wrapper">
+                    <select name="countries" id="countries">
+                        <option value="country" disabled selected hidden>Country</option>
+                        <option value="uk">UK</option>
+                        <option value="france">France</option>
+                        <option value="russia">Russia</option>
+                        <option value="ukraine">Ukraine</option>
+                        <option value="china">China</option>
+                        <option value="brazil">Brazil</option>
+                        <option value="usa">USA</option>
+                        <option value="japan">Japan</option>
+                    </select>
+                </div>
+                <div class="radio-box">
+                    <input type="radio" name="gender" id="male" value="male" required>
+                    <label for="male">Male</label>
+                    <input type="radio" name="gender" id="female" value="female">
+                    <label for="female">Female</label>
+                </div>
+                <div class="terms-box">
+                    <input type="checkbox" id="terms">
+                    <label for="terms">Accept <a href="#">terms</a> and <a href="#">conditions</a></label>
+                </div>
+                <button type="submit">Sign up</button>
+            </form>
+        </div>
+    </div>
+</section>
