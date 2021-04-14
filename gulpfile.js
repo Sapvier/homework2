@@ -1,6 +1,5 @@
 const {src, dest, series, watch} = require('gulp')
 const sass = require('gulp-sass')
-const prettier = require('gulp-prettier')
 const csso = require('gulp-csso')
 const include = require('gulp-file-include');
 const htmlmin = require('gulp-htmlmin')
@@ -49,7 +48,6 @@ function js () {
         .pipe(minify())
         .pipe(dest('dist'))
 }
-
 
 function serve() {
     sync.init({
