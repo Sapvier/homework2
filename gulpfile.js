@@ -12,6 +12,7 @@ const sync = require('browser-sync').create()
 const minify = require('gulp-minify');
 
 
+
 function html() {
     return src('src/index.html')
         .pipe(include({
@@ -49,6 +50,7 @@ function js () {
         .pipe(dest('dist'))
 }
 
+
 function serve() {
     sync.init({
         server: './dist'
@@ -60,6 +62,7 @@ function serve() {
 }
 
 
-
 exports.build = series(clear, scss, image, js, html)
 exports.serve = series(clear, scss, image, html, js, serve)
+
+
