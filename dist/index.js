@@ -36,7 +36,7 @@ class FormValidator {
         let div = input.parentElement
         let span = input.parentElement.nextSibling
 
-        if (input.value.length < 1) {
+        if (input.value.trim().length < 1) {
             span.innerHTML = 'Required field'
             div.style.border = '1px solid red';
             div.style.marginBottom = '9px';
