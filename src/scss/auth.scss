@@ -18,7 +18,8 @@ span {
   padding-right: 5px;
 }
 
-a {
+.terms-box a {
+  font-size: 12px;
   text-decoration: none;
   color: dodgerblue;
 }
@@ -118,7 +119,7 @@ input {
 }
 
 .auth-box {
-  padding: 18px;
+  padding: 28px 18px 18px 18px;
   width: 320px;
   background-color: floralwhite;
   border-radius: 5px;
@@ -132,7 +133,6 @@ input {
 .form-title {
   font-size: 20px;
   font-weight: 700;
-  padding-top: 20px;
   margin-bottom: 35px;
 
 }
