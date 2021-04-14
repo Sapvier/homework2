@@ -3,43 +3,89 @@ class FormValidator {
         this.form = form
         this.fields = fields
     }
+
     initialize() {
         this.validateOnSubmit()
         this.validateOnEntry()
+        this.unlockButton()
     }
 
     validateOnSubmit() {
-        let self = this
         this.form.addEventListener('submit', e => {
             e.preventDefault()
-            self.fields.forEach(field => {
+            this.fields.forEach(field => {
                 const input = document.querySelector(`#${field}`)
-                self.validateFields(input)
+                this.validateFields(input)
             })
         })
     }
 
     validateOnEntry() {
-        let self = this
         this.fields.forEach(field => {
             const input = document.querySelector(`#${field}`)
             input.addEventListener('input', e => {
-               self.validateFields(input)
+                this.validateFields(input)
+            })
+            input.addEventListener('select', e => {
+                this.validateFields(input)
             })
         })
     }
 
     validateFields(input) {
-        console.log(input.parentElement.nextSibling.innerHTML = 'it works!')
-        // input.nextSibling.textContent = 'it works!'
-        // if (input.value === '') {
-        //     console.log(document.getElementById(`${input}`))
-        //     // document.getElementById(`${field}`).label.innerText = 'Look ma this works!';
-        // }
-        // else console.log("not empty")
+        let div = input.parentElement
+        let span = input.parentElement.nextSibling
+
+        if (input.value.length < 1) {
+            span.innerHTML = 'Required field'
+            div.style.border = '1px solid red';
+            div.style.marginBottom = '9px';
+            div.style.borderRadius = '7px'
+
+        } else if (input.value === 'country') {
+            span.innerHTML = 'Required field'
+            div.style.border = '1px solid red';
+            div.style.marginBottom = '9px';
+            div.style.borderRadius = '7px'
+        }
+        else if (input.value !== 'country' && input.id === 'countries') {
+            div.removeAttribute('style')
+            span.innerHTML = ''
+        }
+        else if (input.value.length > 0 && input.id === 'name') {
+            div.removeAttribute('style')
+            span.innerHTML = ''
+        } else if (input.id === 'password' && input.length < 8) {
+            span.innerHTML = 'Password should be at least 8 symbols long'
+            div.style.border = '1px solid red';
+            div.style.marginBottom = '9px';
+            div.style.borderRadius = '7px'
+        } else if (input.id === 'password' && input.value.trim().length < 8) {
+            span.innerHTML = 'Password should be at least 8 symbols long'
+            div.style.border = '1px solid red';
+            div.style.marginBottom = '9px';
+            div.style.borderRadius = '7px'
+        } else if ((input.id === 'password' && input.value.trim().length > 7)) {
+            span.innerHTML = ''
+            div.removeAttribute('style')
+        }
     }
 
+    unlockButton() {
+        let terms = document.getElementById('terms')
+        let button =  document.querySelector('button')
 
+        terms.addEventListener('change', e => {
+            if (terms.checked) {
+                button.disabled = false
+                button.style.backgroundColor = 'dodgerblue'
+            }
+            else {
+                button.disabled = false
+                button.style.backgroundColor = 'silver'
+            }
+        })
+    }
 }
 
 

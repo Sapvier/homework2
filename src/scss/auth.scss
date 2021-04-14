@@ -1,3 +1,8 @@
+$font: 'Helvetica', FontAwesome, sans-serif;
+
+.auth-container * {
+  font-family: $font
+}
 
 form {
   width: 100%;
@@ -23,16 +28,19 @@ a {
 }
 button {
   border: none;
-  border-radius: 9px;
+  border-radius: 7px;
   padding: 10px;
   width: 100%;
-  background-color: dodgerblue;
+  background-color: silver;
   color: floralwhite;
+  outline: none;
 }
 .select-wrapper {
   width: 100%;
   position: relative;
+  margin-bottom: 20px;
 }
+
 .select-wrapper::after {
   color: gray;
   content: "\276F";
@@ -48,20 +56,19 @@ button {
 select {
   -webkit-appearance: none;
   appearance: none;
-  padding: 7px 10px 7px 27px;
+  padding: 10px 10px 10px 30px;
   width: 100%;
-  border-radius: 9px;
-  margin-bottom: 20px;
+  border-radius: 7px;
   background-color: #f5f5f5;
   border: 1px solid #dcdcdc;
   color: grey;
+  font-size: 12px;
 }
 
-select option {
+option {
   color: grey;
   background-color: whitesmoke;
 }
-
 
 select:focus {
   outline: none !important;
@@ -75,10 +82,8 @@ select:focus {
   width: 100%;
 }
 
-.fontAwesome {
-  font-family: 'Helvetica', FontAwesome, sans-serif;
-}
 input {
+  font-size: 12px;
   margin: 0;
   border: none;
   background-color: #f5f5f5;
@@ -88,9 +93,9 @@ input {
 .input-box {
   width: 100%;
   border: 1px solid #dcdcdc;
-  padding: 7px;
-  border-radius: 9px;
-  margin-bottom: 25px;
+  padding: 8px;
+  border-radius: 7px;
+  margin-bottom: 20px;
 
   display: flex;
   flex-direction: row;
@@ -104,6 +109,7 @@ input {
   margin: 0 auto;
   padding: 30px;
   max-width: 1440px;
+  height: 80vh;
   background-color: midnightblue;
 
   display: flex;
@@ -112,8 +118,8 @@ input {
 }
 
 .auth-box {
-  padding: 15px;
-  width: 20%;
+  padding: 18px;
+  width: 23%;
   background-color: floralwhite;
   border-radius: 5px;
 
@@ -124,13 +130,16 @@ input {
 }
 
 .form-title {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
+  margin-bottom: 30px;
+
 }
 
 .radio-box {
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  font-size: 12px;
 
   display: flex;
   flex-direction: row;
@@ -138,9 +147,21 @@ input {
   justify-content: flex-start;
   align-items: center;
 }
+
+.radio-box-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+.radio-box-item input {
+  margin-right: 4px;
+}
+
 .terms-box {
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  font-size: 12px;
 
   display: flex;
   flex-direction: row;
@@ -148,4 +169,11 @@ input {
   align-items: center;
   column-gap: 7px;
 
+}
+.error-message {
+  width: 100%;
+  color: red;
+  font-size: 10px;
+  margin-bottom: 9px;
+  padding-left: 10px;
 }

@@ -35,16 +35,20 @@
                 </div>
                 <span class="error-message"></span>
                 <div class="radio-box">
-                    <input type="radio" name="gender" id="male" value="male" required>
-                    <label for="male">Male</label>
-                    <input type="radio" name="gender" id="female" value="female">
-                    <label for="female">Female</label>
+                    <div class="radio-box-item">
+                        <input type="radio" name="gender" id="male" value="male" required>
+                        <label for="male">Male</label>
+                    </div>
+                    <div class="radio-box-item">
+                        <input type="radio" name="gender" id="female" value="female">
+                        <label for="female">Female</label>
+                    </div>
                 </div>
                 <div class="terms-box">
                     <input type="checkbox" id="terms" required>
                     <label for="terms">Accept <a href="#">terms</a> and <a href="#">conditions</a></label>
                 </div>
-                <button type="submit">Sign up</button>
+                <button type="submit" disabled>Sign up</button>
             </form>
         </div>
     </div>
