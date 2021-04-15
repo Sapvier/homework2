@@ -15,7 +15,6 @@ form {
 span {
   width: 10%;
   color: gray;
-  padding-right: 5px;
 }
 
 .terms-box a {
@@ -39,7 +38,8 @@ button {
 .select-wrapper {
   width: 100%;
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  display: flow-root;
 }
 
 .select-wrapper::after {
@@ -64,6 +64,7 @@ select {
   border: 1px solid #dcdcdc;
   color: grey;
   font-size: 12px;
+
 }
 
 option {
@@ -96,7 +97,7 @@ input {
   border: 1px solid #dcdcdc;
   padding: 8px;
   border-radius: 7px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 
   display: flex;
   flex-direction: row;
@@ -104,6 +105,10 @@ input {
   justify-content: flex-start;
 
   background-color: #f5f5f5;
+}
+.with-errors {
+  border: 1px solid red;
+  border-radius: 7px;
 }
 
 .auth-container {
@@ -134,7 +139,6 @@ input {
   font-size: 20px;
   font-weight: 700;
   margin-bottom: 35px;
-
 }
 
 .radio-box {
@@ -172,10 +176,10 @@ input {
 
 }
 .error-message {
+  height: 20px;
   width: 100%;
   color: red;
   font-size: 10px;
-  margin-bottom: 9px;
   padding-left: 10px;
-
+  margin-top: -20px;
 }

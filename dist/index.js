@@ -16,6 +16,7 @@ class FormValidator {
             e.preventDefault()
             this.fields.forEach(field => {
                 const input = document.querySelector(`#${field}`)
+                input.value = input.value.trim()
                 this.validateFields(input)
             })
         })
@@ -24,47 +25,42 @@ class FormValidator {
     validateOnEntry() {
         this.fields.forEach(field => {
             const input = document.querySelector(`#${field}`)
-            input.addEventListener('input', e => {
+            input.addEventListener('input', () => {
                 this.validateFields(input)
 
             })
-            input.addEventListener('select', e => {
+            input.addEventListener('select', () => {
                 this.validateFields(input)
             })
         })
     }
 
     validateFields(input) {
-        input.type === 'password' ? input.value = input.value.trim().replace(/\s+/g, '') : input.value = input.value.trimStart().replace(/\s{2,}/g, ' ')
+        input.id === 'password' ? input.value = input.value.replace(/\s+/g, '') : input.value = input.value.trimStart().replace(/\s{2,}/g, ' ')
 
         let div = input.parentElement
         let span = input.parentElement.nextSibling
         let value = input.value
 
         if (value.length < 1) {
+            div.classList.add("with-errors")
             span.innerHTML = 'Required field'
-            div.style.border = '1px solid red';
-            div.style.marginBottom = '9px';
-            div.style.borderRadius = '7px'
-        } else if (value === 'country') {
+        } else
+            if (value === 'country') {
             span.innerHTML = 'Required field'
-            div.style.border = '1px solid red';
-            div.style.marginBottom = '9px';
-            div.style.borderRadius = '7px';
+            input.classList.add("with-errors")
         } else if (value !== 'country' && input.id === 'countries') {
-            div.removeAttribute('style')
+            input.classList.remove("with-errors")
             span.innerHTML = ''
         } else if (value.length > 0 && input.id === 'name') {
-            div.removeAttribute('style')
+            div.classList.remove("with-errors")
             span.innerHTML = ''
         } else if (input.id === 'password' && input.value.length < 8) {
-            span.innerHTML = 'Password should be at least 8 symbols long'
-            div.style.border = '1px solid red';
-            div.style.marginBottom = '9px';
-            div.style.borderRadius = '7px'
-        } else if ((input.id === 'password' && input.value.length > 7)) {
-            span.innerHTML = ''
-            div.removeAttribute('style')
+            span.innerHTML = 'Password should be at least 8 symbols long';
+            div.classList.add("with-errors")
+        } else if (input.id === 'password' && input.value.length > 8) {
+            span.innerHTML = '';
+            div.classList.remove("with-errors")
         }
     }
 
@@ -72,7 +68,7 @@ class FormValidator {
         let terms = document.getElementById('terms')
         let button = document.querySelector('button')
 
-        terms.addEventListener('change', e => {
+        terms.addEventListener('change', () => {
             if (terms.checked) {
                 button.disabled = false
                 button.style.backgroundColor = 'dodgerblue'
