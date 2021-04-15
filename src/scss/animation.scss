@@ -1,0 +1,140 @@
+
+.animation-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+.first-animation-block {
+    display: inline-block;
+    position: relative;
+
+    height: 50vh;
+    width: 100%;
+    padding: 20px;
+}
+
+.expand-modal {
+    animation: expand 0.5s;
+    position: absolute;
+    left: 32%;
+    top: 32%;
+
+    max-width: 34%;
+    padding: 20px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid red;
+    border-radius: 15px;
+}
+.expand-button-block {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.expand-button-wrapper {
+    position: absolute;
+    left: 42%;
+    top: 55%;
+    z-index: 1;
+
+    max-width: 35%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.expand-button {
+    position: relative;
+    top: 0;
+    left: 0;
+
+    min-width: 150px;
+    height: 45px;
+    padding: 7px;
+
+    background-color: red;
+    outline: none;
+    border: none;
+    border-radius: 15px;
+
+    font-size: 14px;
+    color: white;
+}
+.expand-button-delete {
+    animation: floating 1s, reveal 0.5s;
+    animation-delay: 0.3s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+
+    min-width: 150px;
+    height: 45px;
+    padding: 7px;
+
+    background-color: red;
+    outline: none;
+    border: none;
+    border-radius: 15px;
+
+    font-size: 14px;
+    color: white;
+
+}
+.expand-button-decline {
+    animation: floating 1s, reveal 0.5s;
+    animation-delay: 0.2s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+
+    min-width: 150px;
+    height: 45px;
+    padding: 7px;
+
+    outline: none;
+    border-radius: 15px;
+    font-size: 14px;
+
+    border: 2px solid red;
+    background-color: white;
+    color: red;
+}
+
+.expand-modal-title {
+    animation: floating 1s;
+    animation-fill-mode: forwards;
+
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    color: red;
+    text-align: center;
+}
+
+.expand-modal-text {
+    animation: floating 1s;
+
+    padding: 10px;
+    color: #262e4f;
+    text-align: center;
+    font-size: 18px;
+}
+
+@keyframes expand {
+    0%   {transform:scale(.1);}
+    100% {transform:scale(1);}
+}
+
+@keyframes floating {
+    0% {transform: translateY(80px); opacity: 1}
+    100% {transform: translateY(0); opacity: 1}
+}
+
+
+
+

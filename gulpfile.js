@@ -1,6 +1,5 @@
 const {src, dest, series, watch} = require('gulp')
 const sass = require('gulp-sass')
-const prettier = require('gulp-prettier')
 const csso = require('gulp-csso')
 const include = require('gulp-file-include');
 const htmlmin = require('gulp-htmlmin')
@@ -9,6 +8,8 @@ const autoprefixer = require('gulp-autoprefixer')
 const del = require('del')
 const concat = require('gulp-concat')
 const sync = require('browser-sync').create()
+const minify = require('gulp-minify');
+
 
 
 function html() {
@@ -41,16 +42,23 @@ function image () {
         .pipe(dest('dist/assets'))
 }
 
+function js () {
+    return src('src/js/**.js')
+        .pipe(concat('index.js'))
+        .pipe(minify())
+        .pipe(dest('dist'))
+}
+
 function serve() {
     sync.init({
         server: './dist'
     })
     watch('src/**.html', series(html)).on('change', sync.reload)
+    watch('src/js/**.js', series(js)).on('change', sync.reload)
     watch('src/parts/**.html', series(html)).on('change', sync.reload)
     watch('src/scss/**.scss', series(scss)).on('change', sync.reload)
 }
 
 
-
-exports.build = series(clear, scss, image, html)
-exports.serve = series(clear, scss, image, html, serve)
+exports.build = series(clear, scss, image, js, html)
+exports.serve = series(clear, scss, image, html, js, serve)
