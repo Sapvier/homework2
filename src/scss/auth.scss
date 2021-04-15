@@ -38,7 +38,7 @@ button {
 .select-wrapper {
   width: 100%;
   position: relative;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
   display: flow-root;
 }
 
@@ -64,7 +64,6 @@ select {
   border: 1px solid #dcdcdc;
   color: grey;
   font-size: 12px;
-
 }
 
 option {
@@ -95,9 +94,9 @@ input {
 .input-box {
   width: 100%;
   border: 1px solid #dcdcdc;
-  padding: 8px;
+  padding: 10px;
   border-radius: 7px;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 
   display: flex;
   flex-direction: row;
@@ -179,7 +178,7 @@ input {
   height: 20px;
   width: 100%;
   color: red;
-  font-size: 10px;
+  font-size: 9px;
   padding-left: 10px;
-  margin-top: -20px;
+  margin-top: -15px;
 }

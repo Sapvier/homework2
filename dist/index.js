@@ -41,12 +41,12 @@ class FormValidator {
         let div = input.parentElement
         let span = input.parentElement.nextSibling
         let value = input.value
+        let regex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{8,}$/
 
         if (value.length < 1) {
             div.classList.add("with-errors")
             span.innerHTML = 'Required field'
-        } else
-            if (value === 'country') {
+        } else if (value === 'country') {
             span.innerHTML = 'Required field'
             input.classList.add("with-errors")
         } else if (value !== 'country' && input.id === 'countries') {
@@ -55,10 +55,10 @@ class FormValidator {
         } else if (value.length > 0 && input.id === 'name') {
             div.classList.remove("with-errors")
             span.innerHTML = ''
-        } else if (input.id === 'password' && input.value.length < 8) {
-            span.innerHTML = 'Password should be at least 8 symbols long';
+        } else if (input.id === 'password' && !regex.test(input.value)) {
+            span.innerHTML = 'Password must contain at least 8 characters, including uppercase, lowercase letter and a number.';
             div.classList.add("with-errors")
-        } else if (input.id === 'password' && input.value.length > 8) {
+        } else if (input.id === 'password' && regex.test(input.value)) {
             span.innerHTML = '';
             div.classList.remove("with-errors")
         }
