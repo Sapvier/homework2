@@ -17,6 +17,7 @@
     position: absolute;
     left: 32%;
     top: 32%;
+    z-index: 2;
 
     max-width: 34%;
     padding: 20px;
@@ -38,11 +39,12 @@
 }
 .expand-button-wrapper {
     position: absolute;
-    left: 42%;
-    top: 55%;
+    left: 32%;
+    top: 32%;
     z-index: 1;
 
-    max-width: 35%;
+    width: 476px;
+    height: 214px;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -128,13 +130,12 @@
 .shifting-cards-block {
     width: 100%;
     height: 100vh;
-    background-color: #9296a6;
     margin: 0 auto;
 
     position: relative;
 }
 .first-shifting-card {
-    animation: firstmoved 5s forwards;
+    animation: firstmoved 6s forwards infinite;
     position: absolute;
     top: 40%;
     left: 40%;
@@ -147,7 +148,7 @@
     border-radius: 5px;
 }
 .second-shifting-card {
-    animation: secondmoved 5s forwards;
+    animation: secondmoved 6s forwards infinite;
     position: absolute;
     top: 42.5%;
     left: 42.5%;
@@ -161,7 +162,7 @@
 }
 
 .third-shifting-card {
-    animation: thirdmoved 5s forwards;
+    animation: thirdmoved 6s forwards infinite;
     position: absolute;
     top: 45%;
     left: 45%;
@@ -175,7 +176,7 @@
 }
 
 @keyframes expand {
-    0%   {transform:scale(.1);}
+    0%   {transform:scale(.35);}
     100% {transform:scale(1);}
 }
 
@@ -185,59 +186,107 @@
 }
 
 @keyframes firstmoved {
-    0% {opacity: 1}
-    //подьем
-    14.2% {top: -140px; left: 40%; z-index: 3}
-    //завис
-    28.55% {z-index: 3}
-    28.57% {opacity: 1; z-index: 2; background-color: indianred;}
-    //сдвиг
-    42.7% {top: 45%; left: 45%; z-index: 1; background-color: indianred;}
-    //сдвиг
-    56.9% {top: 42.5%; left: 42.5%; z-index: 2; background-color: indianred;}
-    //ожидание
-    71.1% {top: 42.5%; left: 42.5%; z-index: 2; background-color: indianred;}
-    //сдвиг
-    85.3% {top: 40%; left: 40%; z-index: 3;}
-    //ожидание
-    100% {opacity: 1}
+    //1
+    16% {z-index: 3}
+    16.6% {top: -128px; left: 40%; z-index: 1}
+    //2
+    33.3% {top: 45%; left: 45%; z-index: 1; background-color: indianred;}
+    //3
+    48% {z-index: 1}
+    49.9% {top: 42.5%; left: 42.5%; z-index: 2; background-color: indianred;}
+//    4
+    65.9% {top: 42.5%; left: 42.5%; z-index: 2; background-color: indianred;}
+//    5
+    80% {z-index: 2}
+    82.5% {top: 40%; left: 40%; z-index: 3;background-color: indianred;}
+    //6
+    100% {top: 40%; left: 40%; z-index: 3;background-color: indianred;}
+
 }
 
 @keyframes secondmoved {
-    0% {opacity: 1}
-    //сдвиг
-    14.2% {top: 40%; left: 40%; background-color: indianred;}
-    //ожидание
-    28.57% {opacity: 1; top: 40%; left: 40%; z-index: 3;background-color: indianred;}
-    //подьем
-    42.7% {top: -140px; left: 40%; background-color: limegreen;}
-    //завис
-    56.8% {z-index: 3}
-    56.9% {opacity: 1; z-index: 2; background-color: indianred;}
-    //сдвиг
-    71.1% {top: 45%; left: 45%; z-index: 1; background-color: indianred;}
-    //сдвиг
-    85.3% {top: 42.5%; left: 42.5%; z-index: 2; background-color: indianred;}
-    //ожидание
-    100% {top: 42.5%; left: 42.5%; z-index: 2; background-color: indianred;}
+    //1
+    16% {z-index: 2}
+    16.6% {top: 40%; left: 40%; z-index: 3; background-color: indianred;}
+    //2
+    33.3% {top: 40%; left: 40%; z-index: 3; background-color: limegreen;}
+    //3
+    48% {z-index: 3}
+    49.9% {top: -128px; left: 40%; z-index: 1}
+//    4
+    65% {z-index: 1}
+    65.9% {top: 45%; left: 45%; z-index: 1; background-color: indianred;}
+//    5
+    80% {z-index: 1}
+    82.5% {top: 42.5%; left: 42.5%; z-index: 2;background-color: indianred;}
+//
+    100% {top: 42.5%; left: 42.5%; z-index: 2;background-color: indianred;}
+
 }
 @keyframes thirdmoved {
-    0% {opacity: 1}
-    //сдвиг
-    14.2% {top: 42.5%; left: 42.5%; z-index: 1;background-color: indianred;}
-    //ожидание
-    28.57% {top: 42.5%; left: 42.5%; z-index: 2;background-color: indianred;}
-    //сдвиг
-    42.7% {opacity: 1;top: 42.5%; left: 42.5%; z-index: 2;background-color: indianred;}
-    //ожидание
-    56.9% {top: 40%; left: 40%; z-index: 3;background-color: limegreen;}
-    //подьем
-    71.1% {top: -140px; left: 40%; background-color: indianred;}
-    //завис
-    85.3% {opacity: 1; z-index: 1; background-color: indianred;}
-    //сдвиг
+    //1
+    16% {z-index: 1}
+    16.6% {top: 42.5%; left: 42.5%; z-index: 2;background-color: indianred;}
+    //2
+    33% {z-index: 2}
+    33.3% {top: 42.5%; left: 42.5%; z-index: 2;background-color: indianred;}
+    //3
+    48% {z-index: 2}
+    49.9% {top: 40%; left: 40%; z-index: 3;background-color: indianred;}
+//    4
+    65.9% {top: 40%; left: 40%; z-index: 3;background-color: limegreen;}
+//    5
+    80% {z-index: 3}
+    82.5% {top: -128px; left: 40%; z-index: 1}
+//    6
+    99% {z-index: 1}
     100% {top: 45%; left: 45%; z-index: 1; background-color: indianred;}
 }
+
+
+
+
+//@keyframes first {
+//    //подьем
+//    25% {top: -128px; left: 40%; z-index: 3}
+//    26% {z-index: 1;}
+//    //сдвиг
+//    50% {top: 45%; left: 45%; z-index: 1; background-color: indianred;}
+//    //сдвиг
+//    75% {top: 42.5%; left: 42.5%; z-index: 2;background-color: indianred;}
+//    76% {z-index: 3}
+//    //сдвиг
+//    100% {top: 40%; left: 40%; z-index: 3; background-color: limegreen;}
+//    //ожидание
+//
+//}
+//@keyframes second {
+//    //сдвиг
+//    18% {z-index: 2}
+//    25% {top: 40%; left: 40%; z-index: 3; background-color: limegreen;}
+//    //ожидание
+//    //подьем
+//    50% {top: -130px; left: 40%; z-index: 3; background-color: indianred;}
+//    51% {z-index: 1;}
+//    //сдвиг
+//    75% {top: 45%; left: 45%; z-index: 1; background-color: indianred;}
+//    //сдвиг
+//    76% {z-index: 2}
+//    100% {top: 42.5%; left: 42.5%; z-index: 2;background-color: indianred;}
+//    //
+//}
+//@keyframes third {
+//    24.9% {z-index: 1}
+//    25% {top: 42.5%; left: 42.5%; z-index: 1;background-color: indianred;}
+//    //сдвиг
+//    49.9% {z-index: 2}
+//    50% {top: 40%; left: 40%; z-index: 3; background-color: limegreen;}
+//    //подьем
+//    75% {top: -103px; left: 40%; z-index: 1; background-color: indianred;}
+//    //сдвиг
+//    100% {top: 45%; left: 45%; z-index: 1; background-color: indianred;}
+//
+//}
 
 
 
