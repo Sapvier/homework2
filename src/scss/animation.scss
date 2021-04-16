@@ -125,14 +125,118 @@
     font-size: 18px;
 }
 
+.shifting-cards-block {
+    width: 100%;
+    height: 100vh;
+    background-color: #9296a6;
+    margin: 0 auto;
+
+    position: relative;
+}
+.first-shifting-card {
+    animation: firstmoved 5s forwards;
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    z-index: 3;
+
+    height: 500px;
+    width: 375px;
+    background-color: limegreen;
+    border: 1px dotted black;
+    border-radius: 5px;
+}
+.second-shifting-card {
+    animation: secondmoved 5s forwards;
+    position: absolute;
+    top: 42.5%;
+    left: 42.5%;
+    z-index: 2;
+
+    height: 500px;
+    width: 375px;
+    background-color: indianred;
+    border: 1px dotted black;
+    border-radius: 5px;
+}
+
+.third-shifting-card {
+    animation: thirdmoved 5s forwards;
+    position: absolute;
+    top: 45%;
+    left: 45%;
+    z-index: 1;
+
+    height: 500px;
+    width: 375px;
+    background-color: indianred;
+    border: 1px dotted black;
+    border-radius: 5px;
+}
+
 @keyframes expand {
     0%   {transform:scale(.1);}
     100% {transform:scale(1);}
 }
 
 @keyframes floating {
-    0% {transform: translateY(80px); opacity: 1}
+    0% {transform: translateY(35px); opacity: 1}
     100% {transform: translateY(0); opacity: 1}
+}
+
+@keyframes firstmoved {
+    0% {opacity: 1}
+    //подьем
+    14.2% {top: -140px; left: 40%; z-index: 3}
+    //завис
+    28.55% {z-index: 3}
+    28.57% {opacity: 1; z-index: 2; background-color: indianred;}
+    //сдвиг
+    42.7% {top: 45%; left: 45%; z-index: 1; background-color: indianred;}
+    //сдвиг
+    56.9% {top: 42.5%; left: 42.5%; z-index: 2; background-color: indianred;}
+    //ожидание
+    71.1% {top: 42.5%; left: 42.5%; z-index: 2; background-color: indianred;}
+    //сдвиг
+    85.3% {top: 40%; left: 40%; z-index: 3;}
+    //ожидание
+    100% {opacity: 1}
+}
+
+@keyframes secondmoved {
+    0% {opacity: 1}
+    //сдвиг
+    14.2% {top: 40%; left: 40%; background-color: indianred;}
+    //ожидание
+    28.57% {opacity: 1; top: 40%; left: 40%; z-index: 3;background-color: indianred;}
+    //подьем
+    42.7% {top: -140px; left: 40%; background-color: limegreen;}
+    //завис
+    56.8% {z-index: 3}
+    56.9% {opacity: 1; z-index: 2; background-color: indianred;}
+    //сдвиг
+    71.1% {top: 45%; left: 45%; z-index: 1; background-color: indianred;}
+    //сдвиг
+    85.3% {top: 42.5%; left: 42.5%; z-index: 2; background-color: indianred;}
+    //ожидание
+    100% {top: 42.5%; left: 42.5%; z-index: 2; background-color: indianred;}
+}
+@keyframes thirdmoved {
+    0% {opacity: 1}
+    //сдвиг
+    14.2% {top: 42.5%; left: 42.5%; z-index: 1;background-color: indianred;}
+    //ожидание
+    28.57% {top: 42.5%; left: 42.5%; z-index: 2;background-color: indianred;}
+    //сдвиг
+    42.7% {opacity: 1;top: 42.5%; left: 42.5%; z-index: 2;background-color: indianred;}
+    //ожидание
+    56.9% {top: 40%; left: 40%; z-index: 3;background-color: limegreen;}
+    //подьем
+    71.1% {top: -140px; left: 40%; background-color: indianred;}
+    //завис
+    85.3% {opacity: 1; z-index: 1; background-color: indianred;}
+    //сдвиг
+    100% {top: 45%; left: 45%; z-index: 1; background-color: indianred;}
 }
 
 
