@@ -9,6 +9,9 @@ class FormValidator {
         this.validateOnEntry()
         this.unlockButton()
         this.showPassword()
+        this.validateName()
+        this.validatePassword()
+        this.validateSelect()
     }
 
     validateOnSubmit() {
@@ -17,8 +20,15 @@ class FormValidator {
             this.fields.forEach(field => {
                 const input = document.querySelector(`#${field}`)
                 input.value = input.value.trim()
-                this.validateFields(input)
+                if (field === 'password') {
+                    this.validatePassword(input)
+                }
+                else if (field === 'name') {
+                    this.validateName(input)
+                }
+                else this.validateSelect(input)
             })
+
         })
     }
 
@@ -26,36 +36,26 @@ class FormValidator {
         this.fields.forEach(field => {
             const input = document.querySelector(`#${field}`)
             input.addEventListener('input', () => {
-                this.validateFields(input)
+                input.type === 'password' ? this.validatePassword(input)
+                                          : this.validateName(input)
+            })
+            input.addEventListener('change', () => {
+                this.validateSelect(input)
+            })
 
-            })
-            input.addEventListener('select', () => {
-                this.validateFields(input)
-            })
         })
     }
 
-    validateFields(input) {
-        input.id === 'password' ? input.value = input.value.replace(/\s+/g, '') : input.value = input.value.trimStart().replace(/\s{2,}/g, ' ')
-
+    validatePassword(input) {
         let div = input.parentElement
         let span = input.parentElement.nextSibling
-        let value = input.value
-        let regex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{8,}$/
 
-        if (value.length < 1) {
+        let regex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{8,}$/
+        if (input.value.length < 1) {
             div.classList.add("with-errors")
             span.innerHTML = 'Required field'
-        } else if (value === 'country') {
-            span.innerHTML = 'Required field'
-            input.classList.add("with-errors")
-        } else if (value !== 'country' && input.id === 'countries') {
-            input.classList.remove("with-errors")
-            span.innerHTML = ''
-        } else if (value.length > 0 && input.id === 'name') {
-            div.classList.remove("with-errors")
-            span.innerHTML = ''
-        } else if (input.id === 'password' && !regex.test(input.value)) {
+        }
+        else if (input.id === 'password' && !regex.test(input.value)) {
             span.innerHTML = 'Password must contain at least 8 characters, including uppercase, lowercase letter and a number.';
             div.classList.add("with-errors")
         } else if (input.id === 'password' && regex.test(input.value)) {
@@ -64,16 +64,46 @@ class FormValidator {
         }
     }
 
+    validateName(input) {
+        input.value = input.value.trimStart().replace(/\s{2,}/g, ' ')
+        input.value = input.value.replace(/[^a-zA-ZА-я\s0-9]/g, '')
+
+        let div = input.parentElement
+        let span = input.parentElement.nextSibling
+
+        if (input.value.length < 1) {
+            div.classList.add("with-errors")
+            span.innerHTML = 'Required field'
+        }
+        else if (input.value.length > 0 && input.id === 'name') {
+            div.classList.remove("with-errors")
+            span.innerHTML = ''
+        }
+    }
+    validateSelect(input) {
+        let span = input.parentElement.nextSibling
+
+        if (input.value === 'country') {
+            span.innerHTML = 'Required field'
+            input.classList.add("with-errors")
+        }
+        else {
+            input.classList.remove("with-errors")
+            span.innerHTML = ''
+        }
+    }
+
+
     unlockButton() {
         let terms = document.getElementById('terms')
-        let button = document.querySelector('button')
+        let button = document.querySelector('.submit-button')
 
         terms.addEventListener('change', () => {
             if (terms.checked) {
                 button.disabled = false
-                button.style.backgroundColor = 'dodgerblue'
+                button.classList.add('active')
             } else {
-                button.disabled = false
+                button.disabled = true
                 button.style.backgroundColor = 'silver'
             }
         })

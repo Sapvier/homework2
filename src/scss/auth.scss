@@ -26,7 +26,7 @@ span {
 #eye-slashed {
   display: none;
 }
-button {
+.submit-button {
   border: none;
   border-radius: 7px;
   padding: 10px;
@@ -35,6 +35,10 @@ button {
   color: floralwhite;
   outline: none;
 }
+.submit-button:focus {
+  animation: submit 1s;
+}
+
 .select-wrapper {
   width: 100%;
   position: relative;
@@ -181,4 +185,15 @@ input {
   font-size: 9px;
   padding-left: 10px;
   margin-top: -15px;
+}
+
+.active {
+  cursor: pointer;
+  background-color: dodgerblue;
+}
+
+@keyframes submit {
+  0% {opacity: 1}
+  50% {background-color: limegreen;}
+  100% {opacity:1}
 }
