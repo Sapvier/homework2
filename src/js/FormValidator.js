@@ -12,55 +12,80 @@ class FormValidator {
         this.validateName()
         this.validatePassword()
         this.validateSelect()
+        this.validateOnKeyDown()
     }
 
     validateOnSubmit() {
+        let button = document.querySelector(".submit-button")
         this.form.addEventListener('submit', e => {
             e.preventDefault()
             this.fields.forEach(field => {
                 const input = document.querySelector(`#${field}`)
                 input.value = input.value.trim()
                 if (field === 'password') {
-                    this.validatePassword(input)
+                    var validatePasswordError = this.validatePassword(input)
+
                 }
                 else if (field === 'name') {
-                    this.validateName(input)
-                }
-                else this.validateSelect(input)
-            })
+                    var validateNameError = this.validateName(input)
 
+                }
+                else {
+                    var validateSelectError = this.validateSelect(input)
+                }
+
+                if (validatePasswordError || validateNameError || validateSelectError) {
+                    button.style.animation = "submitInvalid 1s"
+                    button.style.animationPlayState = "running"
+                }
+                else {
+                    button.style.animation = "submitValid 1s"
+                    button.style.animationPlayState = "running"
+                }
+            })
         })
+
+    }
+    validateOnKeyDown() {
+        this.form.onkeydown = () => this.validateOnSubmit()
     }
 
     validateOnEntry() {
         this.fields.forEach(field => {
             const input = document.querySelector(`#${field}`)
             input.addEventListener('input', () => {
-                input.type === 'password' ? this.validatePassword(input)
-                                          : this.validateName(input)
+                input.id === 'password' ? this.validatePassword(input)
+                                        : this.validateName(input)
             })
             input.addEventListener('change', () => {
                 this.validateSelect(input)
             })
-
         })
     }
 
     validatePassword(input) {
         let div = input.parentElement
         let span = input.parentElement.nextSibling
+        let passwordError = false
 
         let regex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{8,}$/
         if (input.value.length < 1) {
             div.classList.add("with-errors")
             span.innerHTML = 'Required field'
+            input.focus()
+            passwordError = true
+            return passwordError
         }
         else if (input.id === 'password' && !regex.test(input.value)) {
             span.innerHTML = 'Password must contain at least 8 characters, including uppercase, lowercase letter and a number.';
             div.classList.add("with-errors")
+            input.focus()
+            passwordError = true
+            return passwordError
         } else if (input.id === 'password' && regex.test(input.value)) {
             span.innerHTML = '';
             div.classList.remove("with-errors")
+            return passwordError
         }
     }
 
@@ -70,26 +95,36 @@ class FormValidator {
 
         let div = input.parentElement
         let span = input.parentElement.nextSibling
+        let nameError = false
 
         if (input.value.length < 1) {
             div.classList.add("with-errors")
             span.innerHTML = 'Required field'
+            nameError = true
+            input.focus()
+            return nameError
         }
         else if (input.value.length > 0 && input.id === 'name') {
             div.classList.remove("with-errors")
             span.innerHTML = ''
+            return nameError
         }
     }
     validateSelect(input) {
         let span = input.parentElement.nextSibling
+        let selectError = false
 
         if (input.value === 'country') {
             span.innerHTML = 'Required field'
             input.classList.add("with-errors")
+            selectError = true
+            return selectError
         }
         else {
             input.classList.remove("with-errors")
             span.innerHTML = ''
+            document.querySelector('.submit-button').focus()
+            return selectError
         }
     }
 

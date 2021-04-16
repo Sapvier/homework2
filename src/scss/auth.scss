@@ -35,9 +35,7 @@ span {
   color: floralwhite;
   outline: none;
 }
-.submit-button:focus {
-  animation: submit 1s;
-}
+
 
 .select-wrapper {
   width: 100%;
@@ -190,10 +188,17 @@ input {
 .active {
   cursor: pointer;
   background-color: dodgerblue;
+  animation: submitValid 1s;
+  animation-play-state: paused;
 }
 
-@keyframes submit {
+@keyframes submitValid {
   0% {opacity: 1}
   50% {background-color: limegreen;}
+  100% {opacity:1}
+}
+@keyframes submitInvalid {
+  0% {opacity: 1}
+  50% {background-color: crimson;}
   100% {opacity:1}
 }
