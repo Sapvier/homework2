@@ -1,4 +1,4 @@
-class CardsAnimation {
+class ModalAnimation {
     constructor(modal, expandButton, declineButton, deleteButton) {
         this.modal = modal
         this.expandButton = expandButton
