@@ -1,0 +1,45 @@
+<section>
+    <div class="svg-animation-container">
+        <svg width="500" height="500" viewBox="0 0 500 500">
+            <rect x="0" y="0" width="400" height="400" fill="red"></rect>
+            <circle cx="40%" cy="40%" r="83" fill="white"></circle>
+            <circle cx="40%" cy="40%" r="80" fill="red"></circle>
+            <rect id="minutes-arrow" x="40%" y="40%" width="3px" height="55px" fill="white" rx="2">
+                <animateTransform attributeName="transform"
+                                  attributeType="XML"
+                                  type="rotate"
+                                  to="360 201.5 201"
+                                  from="0 201.5 201"
+                                  dur="10s"
+                                  repeatCount="indefinite"
+                />
+            </rect>
+            <rect class="hours-arrow" x="40%" y="40%" width="3px" height="40px" fill="white" rx="2">
+                <animateTransform attributeName="transform"
+                                  attributeType="XML"
+                                  type="rotate"
+                                  to="360 201.5 201"
+                                  from="0 201.5 201"
+                                  dur="60s"
+                                  repeatCount="indefinite"
+                />
+            </rect>
+        </svg>
+        <div class="progress-svg-wrapper">
+            <div class="progress-indicator">0%</div>
+            <svg width="500" height="500" viewBox="0 0 500 500" class="progress-bar-svg">
+                <rect x="0" y="0" width="400" height="400" fill="black"></rect>
+                <circle cx="40%" cy="40%" r="50" fill="transparent"
+                        stroke="grey" stroke-width="5"></circle>
+                <circle class='progress-bar' cx="40%" cy="40%" r="50" fill="transparent" stroke-dasharray="314.15"
+                        stroke-dashoffset="314.15"
+                        stroke-width="5" stroke="coral"></circle>
+            </svg>
+            <form class="form-svg">
+                <p class="form-svg__title">Type a percent!</p>
+                <input type="number" id="percentage" class="form-svg__input" min="0" max="100">
+                <label for="percentage"></label>
+            </form>
+        </div>
+    </div>
+</section>

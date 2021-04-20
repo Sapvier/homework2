@@ -1,5 +1,11 @@
 $blue: blue;
 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -14,4 +20,50 @@ h1 {
   justify-content: center;
   align-items: center;
   margin: 0 auto;
+}
+.progress-svg-wrapper {
+  position: relative;
+}
+
+.svg-animation-container {
+  max-width: 1500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.svg-dasharray-container {
+  position: relative;
+}
+.form-svg {
+  max-width: 80%;
+  margin-top: -125px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+.form-svg__title {
+  color: white
+}
+.form-svg__input {
+  background-color: dimgray;
+  text-align: center;
+  min-width: 30%;
+}
+
+.progress-bar-svg > circle {
+  transition: stroke-dashoffset 1.25s ease;
+}
+
+.progress-indicator {
+  position: absolute;
+  top: 46.5%;
+  left: 37%;
+  color: gray;
+
+  font-size: 24px;
 }
