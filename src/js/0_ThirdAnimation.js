@@ -18,5 +18,6 @@ class ThirdAnimation {
         this.animatedButton[3].addEventListener('click', () => {
             this.animatedButton[3].style.animationPlayState = 'running'
         })
+        console.log(animatedButton)
     }
 }

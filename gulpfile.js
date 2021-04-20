@@ -61,4 +61,4 @@ function serve() {
 
 
 exports.build = series(clear, scss, image, js, html)
-exports.serve = series(clear, scss, image, html, js, serve)
+exports.serve = series(clear, scss, image, js, html, serve)

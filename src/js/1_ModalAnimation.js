@@ -16,6 +16,7 @@ class ModalAnimation {
             this.modal.style.display = 'flex'
             this.expandButton.style.display = 'none'
         })
+        console.log('click')
     }
 
     closeModal() {
